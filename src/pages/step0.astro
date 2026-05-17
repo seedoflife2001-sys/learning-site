@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="はじめに">
+  <div class="max-w-3xl mx-auto px-6 py-12">
+
+    <!-- パンくずリスト -->
+    <nav class="text-sm text-gray-400 mb-8">
+      <a href="/" class="hover:text-teal-600">ホーム</a> &rsaquo;
+      <span class="text-gray-600 ml-1">STEP 0｜はじめに</span>
+    </nav>
+
+    <!-- タイトル -->
+    <div class="mb-10">
+      <span class="inline-block bg-gray-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">STEP 0</span>
+      <h1 class="text-3xl font-bold mb-3">はじめに</h1>
+      <p class="text-gray-500">このサイトの使い方と学習の進め方</p>
+    </div>
+
+    <!-- 本文 -->
+    <div class="prose prose-gray max-w-none space-y-10">
+
+      <section>
+        <h2 class="text-xl font-bold border-l-4 border-teal-500 pl-4 mb-4">このサイトについて</h2>
+        <p class="text-gray-700 leading-relaxed">このサイトは、<strong>歯科医師臨床研修医</strong>を対象に、AIリテラシーと医療安全の基礎を学ぶための教材です。</p>
+        <p class="text-gray-700 leading-relaxed mt-3">研修医として臨床の現場に立つ中で、ChatGPTをはじめとするAIツールに触れる機会は増えています。しかし、<strong>「AIの情報をどこまで信じていいか」</strong>という判断基準を持たないまま使うことは、医療の現場では大きなリスクになりえます。</p>
+        <p class="text-gray-700 leading-relaxed mt-3">このサイトでは、AIの基本的な仕組みから、医療安全との関係、実践的な使い方まで、<strong>ステップごとにわかりやすく</strong>学べます。</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold border-l-4 border-teal-500 pl-4 mb-4">対象者</h2>
+        <ul class="list-disc list-inside space-y-2 text-gray-700">
+          <li>歯科医師臨床研修医</li>
+          <li>AIツールを使い始めたばかりの方</li>
+          <li>医療現場でのAI活用に不安がある方</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold border-l-4 border-teal-500 pl-4 mb-4">学習の進め方</h2>
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-4">
+          <p class="font-bold text-blue-800 mb-2">自己学習として使う場合</p>
+          <p class="text-blue-700 text-sm">STEP 0 から順番に読み進めてください。各STEPは <strong>30〜45分</strong> を目安に読み終えられる分量です。</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-sm">
+            {['STEP 0','STEP 1','STEP 2','STEP 3','STEP 4'].map((s, i) => (
+              <span class="bg-white border border-blue-200 text-blue-700 px-3 py-1 rounded-full">{s}</span>
+            ))}
+          </div>
+        </div>
+        <div class="bg-green-50 border border-green-200 rounded-xl p-5">
+          <p class="font-bold text-green-800 mb-2">講義・研修の補助教材として使う場合</p>
+          <p class="text-green-700 text-sm">担当指導医の指示に従い、該当するSTEPを参照してください。各章は独立して読めるように設計されています。</p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold border-l-4 border-teal-500 pl-4 mb-4">このサイトで学べること</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="text-left p-3 border border-gray-200">STEP</th>
+                <th class="text-left p-3 border border-gray-200">テーマ</th>
+                <th class="text-left p-3 border border-gray-200">学習のゴール</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="p-3 border border-gray-200">STEP 1</td><td class="p-3 border border-gray-200">AIとは何か</td><td class="p-3 border border-gray-200">AIの基本的な仕組みを説明できる</td></tr>
+              <tr class="bg-gray-50"><td class="p-3 border border-gray-200">STEP 2</td><td class="p-3 border border-gray-200">情報の信頼性</td><td class="p-3 border border-gray-200">AI情報の正しい判断基準を持てる</td></tr>
+              <tr><td class="p-3 border border-gray-200">STEP 3</td><td class="p-3 border border-gray-200">医療安全</td><td class="p-3 border border-gray-200">AIに関連するリスクを認識できる</td></tr>
+              <tr class="bg-gray-50"><td class="p-3 border border-gray-200">STEP 4</td><td class="p-3 border border-gray-200">実践活用</td><td class="p-3 border border-gray-200">臨床でAIを安全に使える</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="bg-amber-50 border border-amber-200 rounded-xl p-5">
+        <h2 class="text-lg font-bold text-amber-800 mb-3">⚠️ 注意事項</h2>
+        <ul class="list-disc list-inside space-y-2 text-amber-800 text-sm">
+          <li>このサイトの内容は<strong>教育目的</strong>のものです</li>
+          <li>個々の臨床判断は必ず<strong>指導医に確認</strong>してください</li>
+          <li>AIの情報を臨床に直接使用する際は<strong>一次ソースを必ず確認</strong>してください</li>
+        </ul>
+      </section>
+
+    </div>
+
+    <!-- ナビゲーション -->
+    <div class="mt-12 pt-8 border-t border-gray-200 flex justify-end">
+      <a href="/step1" class="bg-teal-600 text-white px-6 py-3 rounded-full hover:bg-teal-700 transition font-bold">
+        STEP 1へ進む →
+      </a>
+    </div>
+
+  </div>
+</Layout>

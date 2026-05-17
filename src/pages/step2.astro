@@ -1,0 +1,166 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="AI情報の信頼性を判断する">
+  <div class="max-w-3xl mx-auto px-6 py-12">
+
+    <nav class="text-sm text-gray-400 mb-8">
+      <a href="/" class="hover:text-teal-600">ホーム</a> &rsaquo;
+      <span class="text-gray-600 ml-1">STEP 2｜AI情報の信頼性を判断する</span>
+    </nav>
+
+    <div class="mb-10">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="inline-block bg-teal-500 text-white text-xs font-bold px-3 py-1 rounded-full">STEP 2</span>
+        <span class="bg-teal-100 text-teal-700 text-xs font-bold px-3 py-1 rounded-full">★ メインテーマ</span>
+      </div>
+      <h1 class="text-3xl font-bold mb-3">AI情報の信頼性を判断する</h1>
+      <p class="text-gray-500">ハルシネーション・一次ソースの確認・歯科臨床でのチェックリスト</p>
+    </div>
+
+    <div class="space-y-10">
+
+      <section>
+        <h2 class="text-xl font-bold border-l-4 border-teal-500 pl-4 mb-4">なぜAIは間違えるのか（ハルシネーション）</h2>
+        <p class="text-gray-700 leading-relaxed"><strong>ハルシネーション（幻覚）</strong>とは、AIが事実ではない情報を、あたかも正確であるかのように出力する現象です。</p>
+        <p class="text-gray-700 leading-relaxed mt-3">AIは「正しい答えを知っている」のではなく、「確からしい言葉のつながり」を生成しています。そのため、<strong>知らないことでも知っているかのように答えてしまう</strong>ことがあります。</p>
+
+        <h3 class="font-bold text-gray-800 mt-6 mb-3">具体的な例</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-teal-50">
+                <th class="text-left p-3 border border-gray-200">現象</th>
+                <th class="text-left p-3 border border-gray-200">例</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="p-3 border border-gray-200 font-medium">存在しない論文を引用する</td><td class="p-3 border border-gray-200 text-red-600">"Journal of Dental Research 2023, Vol.45..." と正確に見えるが実在しない</td></tr>
+              <tr class="bg-gray-50"><td class="p-3 border border-gray-200 font-medium">数値を作り出す</td><td class="p-3 border border-gray-200 text-red-600">「有病率は12.3%」と言うが、根拠がない</td></tr>
+              <tr><td class="p-3 border border-gray-200 font-medium">古い情報を最新として提示する</td><td class="p-3 border border-gray-200 text-red-600">ガイドラインが改訂されていても古い情報を答える</td></tr>
+              <tr class="bg-gray-50"><td class="p-3 border border-gray-200 font-medium">薬の用量を誤る</td><td class="p-3 border border-gray-200 text-red-600">正確に見えるが実際の用量と異なる</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bg-red-50 border border-red-200 rounded-xl p-4 mt-4">
+          <p class="text-red-800 font-bold">⚠️ 重要</p>
+          <p class="text-red-700 mt-1 text-sm">AIは間違えても謝りません。<strong>自信満々に誤情報を提示します。</strong></p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold border-l-4 border-teal-500 pl-4 mb-4">医療情報とAI：信じていい？いけない？</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-red-50 border border-red-200 rounded-xl p-5">
+            <p class="font-bold text-red-800 mb-3">❌ 信じすぎてはいけない情報</p>
+            <ul class="space-y-2 text-red-700 text-sm">
+              <li>・具体的な薬の用量・投与方法</li>
+              <li>・最新のガイドライン・診療基準</li>
+              <li>・特定の患者に当てはまるかどうかの判断</li>
+              <li>・論文の引用・出典</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 border border-green-200 rounded-xl p-5">
+            <p class="font-bold text-green-800 mb-3">✅ 参考にしてよい使い方</p>
+            <ul class="space-y-2 text-green-700 text-sm">
+              <li>・概念の大まかな理解（その後一次ソースで確認）</li>
+              <li>・鑑別診断候補のブレインストーミング</li>
+              <li>・英語論文の内容把握（その後原文で確認）</li>
+              <li>・記録文書の文章表現の補助</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold border-l-4 border-teal-500 pl-4 mb-4">情報の一次ソースを確認する習慣</h2>
+        <p class="text-gray-700">AIの回答をそのまま使わず、<strong>必ず一次ソース（原典）を確認する</strong>ことが医療の基本です。</p>
+
+        <h3 class="font-bold text-gray-800 mt-6 mb-3">歯科臨床で信頼できる情報源</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-teal-50">
+                <th class="text-left p-3 border border-gray-200">情報の種類</th>
+                <th class="text-left p-3 border border-gray-200">信頼できる一次ソース</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="p-3 border border-gray-200">診療ガイドライン</td><td class="p-3 border border-gray-200 font-medium">日本歯科医学会・各専門学会の公式サイト</td></tr>
+              <tr class="bg-gray-50"><td class="p-3 border border-gray-200">薬の情報</td><td class="p-3 border border-gray-200 font-medium">添付文書・インタビューフォーム</td></tr>
+              <tr><td class="p-3 border border-gray-200">感染対策</td><td class="p-3 border border-gray-200 font-medium">厚生労働省・CDC・WHO のガイドライン</td></tr>
+              <tr class="bg-gray-50"><td class="p-3 border border-gray-200">最新の研究</td><td class="p-3 border border-gray-200 font-medium">PubMed・医中誌・Cochrane Library</td></tr>
+              <tr><td class="p-3 border border-gray-200">保険診療</td><td class="p-3 border border-gray-200 font-medium">診療報酬点数表・社会保険支払基金</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="font-bold text-gray-800 mt-6 mb-3">確認の手順</h3>
+        <div class="flex flex-col gap-2">
+          {[
+            '① AIの回答を「参考」として読む',
+            '② キーワードを抽出して一次ソースを検索',
+            '③ 一次ソースの内容と照合する',
+            '④ 不明点は指導医に確認する',
+          ].map((step) => (
+            <div class="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-700">{step}</div>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold border-l-4 border-teal-500 pl-4 mb-4">歯科臨床でAIを使うときのチェックリスト</h2>
+
+        <div class="space-y-4">
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+            <p class="font-bold text-gray-700 mb-3">使用前チェック</p>
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">☐</span> この質問は臨床判断に直結するものではないか？</li>
+              <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">☐</span> AIに個人情報・患者情報を入力していないか？</li>
+            </ul>
+          </div>
+          <div class="bg-blue-50 border border-blue-200 rounded-xl p-5">
+            <p class="font-bold text-blue-800 mb-3">回答を受け取ったときのチェック</p>
+            <ul class="space-y-2 text-sm text-blue-700">
+              <li class="flex items-start gap-2"><span class="mt-0.5">☐</span> 回答の根拠（出典）が明示されているか？</li>
+              <li class="flex items-start gap-2"><span class="mt-0.5">☐</span> 出典が実在するか確認したか？</li>
+              <li class="flex items-start gap-2"><span class="mt-0.5">☐</span> 最新の情報かどうか確認したか？</li>
+              <li class="flex items-start gap-2"><span class="mt-0.5">☐</span> 一次ソース（公式ガイドライン・添付文書等）と照合したか？</li>
+            </ul>
+          </div>
+          <div class="bg-teal-50 border border-teal-200 rounded-xl p-5">
+            <p class="font-bold text-teal-800 mb-3">臨床に使用する前のチェック</p>
+            <ul class="space-y-2 text-sm text-teal-700">
+              <li class="flex items-start gap-2"><span class="mt-0.5">☐</span> 指導医に確認したか？</li>
+              <li class="flex items-start gap-2"><span class="mt-0.5">☐</span> 患者の個別状況を考慮したか？</li>
+              <li class="flex items-start gap-2"><span class="mt-0.5">☐</span> 自分自身が内容を理解しているか？</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+        <h2 class="text-lg font-bold mb-3">📝 まとめ</h2>
+        <ul class="list-disc list-inside space-y-2 text-gray-700 text-sm">
+          <li>AIはハルシネーション（誤情報の自信満々な出力）を起こす</li>
+          <li>医療情報は必ず一次ソースで確認する</li>
+          <li>AIは「考えるきっかけ」として使い、「答え」として使わない</li>
+          <li>不明点は必ず指導医に確認する</li>
+        </ul>
+      </section>
+
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-gray-200 flex justify-between">
+      <a href="/step1" class="text-gray-500 hover:text-teal-600 transition px-6 py-3 rounded-full border border-gray-200 hover:border-teal-300">
+        ← STEP 1へ戻る
+      </a>
+      <a href="/step3" class="bg-teal-600 text-white px-6 py-3 rounded-full hover:bg-teal-700 transition font-bold">
+        STEP 3へ進む →
+      </a>
+    </div>
+
+  </div>
+</Layout>

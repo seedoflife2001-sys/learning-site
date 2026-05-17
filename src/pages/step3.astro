@@ -1,0 +1,144 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="医療安全とAI">
+  <div class="max-w-3xl mx-auto px-6 py-12">
+
+    <nav class="text-sm text-gray-400 mb-8">
+      <a href="/" class="hover:text-teal-600">ホーム</a> &rsaquo;
+      <span class="text-gray-600 ml-1">STEP 3｜医療安全とAI</span>
+    </nav>
+
+    <div class="mb-10">
+      <span class="inline-block bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">STEP 3</span>
+      <h1 class="text-3xl font-bold mb-3">医療安全とAI</h1>
+      <p class="text-gray-500">医療安全の基本概念・AIが関わるリスク・患者説明・プライバシー</p>
+    </div>
+
+    <div class="space-y-10">
+
+      <section>
+        <h2 class="text-xl font-bold border-l-4 border-orange-500 pl-4 mb-4">医療安全の基本概念</h2>
+        <p class="text-gray-700 mb-4">医療安全では、問題の重大さを段階的に分類します。</p>
+        <div class="flex flex-col md:flex-row gap-2 mb-6">
+          {[
+            { label: 'ヒヤリハット', sub: '事故に至らなかった', color: 'bg-yellow-100 border-yellow-300 text-yellow-800' },
+            { label: 'インシデント', sub: '影響は軽微', color: 'bg-orange-100 border-orange-300 text-orange-800' },
+            { label: 'アクシデント', sub: '患者に影響が出た', color: 'bg-red-100 border-red-300 text-red-800' },
+          ].map((item, i) => (
+            <div class={`flex-1 border rounded-xl p-4 text-center ${item.color}`}>
+              <p class="font-bold">{item.label}</p>
+              <p class="text-xs mt-1">{item.sub}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-orange-50">
+                <th class="text-left p-3 border border-gray-200">用語</th>
+                <th class="text-left p-3 border border-gray-200">定義</th>
+                <th class="text-left p-3 border border-gray-200">例</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="p-3 border border-gray-200 font-medium">ヒヤリハット</td><td class="p-3 border border-gray-200">事故には至らなかったが、ヒヤリとした体験</td><td class="p-3 border border-gray-200">違う患者のカルテを開きかけた</td></tr>
+              <tr class="bg-gray-50"><td class="p-3 border border-gray-200 font-medium">インシデント</td><td class="p-3 border border-gray-200">患者に影響が出たが軽微だった出来事</td><td class="p-3 border border-gray-200">処置の説明が不十分だった</td></tr>
+              <tr><td class="p-3 border border-gray-200 font-medium">アクシデント</td><td class="p-3 border border-gray-200">患者に明らかな影響・被害が出た出来事</td><td class="p-3 border border-gray-200">薬の投与量を誤った</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bg-orange-50 border-l-4 border-orange-400 p-4 mt-4 rounded-r-xl">
+          <p class="text-orange-800 font-bold">なぜ報告が大切か</p>
+          <p class="text-orange-700 mt-1 text-sm">「ミスを責めるのではなく、システムを改善する」— 個人のミスを責めるのではなく、なぜそのミスが起きやすい環境だったかを分析し、システムを改善することが医療安全の基本です。</p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold border-l-4 border-orange-500 pl-4 mb-4">AIが関わる新しいリスク</h2>
+        <div class="space-y-4">
+          {[
+            { num: '1', title: '誤情報の臨床応用', desc: 'AIが出力した誤った情報を確認せずに臨床に使用してしまうリスク。', examples: ['AIが提示した薬の用量が誤っており、そのまま処方しそうになった', 'AIが古いガイドラインの情報を答え、最新の基準と異なる処置をしそうになった'] },
+            { num: '2', title: '過信・思考停止', desc: 'AIの回答を疑わずに受け入れることで、自分で考える習慣が失われるリスク。', quote: 'AIは「調べる手間」を減らしてくれますが、「考える責任」は減りません。' },
+            { num: '3', title: '患者情報の漏洩', desc: 'AIツールに患者の個人情報を入力してしまうリスク。', items: ['患者の氏名・生年月日・住所', '診断名と個人情報を組み合わせた情報', '施設名と症例を特定できる情報'] },
+            { num: '4', title: '説明責任の曖昧化', desc: 'AIを使ったことで「AIがそう言ったから」という言い訳が生まれるリスク。', quote: '医療行為の責任は、AIではなく医療者にあります。' },
+          ].map((risk) => (
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+              <p class="font-bold text-gray-800 mb-2">リスク{risk.num}：{risk.title}</p>
+              <p class="text-gray-700 text-sm mb-2">{risk.desc}</p>
+              {risk.quote && <p class="text-gray-600 text-sm italic border-l-2 border-gray-300 pl-3">{risk.quote}</p>}
+              {risk.items && (
+                <ul class="mt-2 space-y-1 text-sm text-red-700">
+                  {risk.items.map(item => <li>・{item}</li>)}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold border-l-4 border-orange-500 pl-4 mb-4">患者がAI情報を持ち込む場合の対応</h2>
+        <p class="text-gray-700 text-sm mb-4">患者が「AIに聞いたら○○と言われた」と情報を持ち込むケースへの対応の基本：</p>
+        <div class="flex flex-col gap-2">
+          {[
+            '① 否定せず、まず話を聞く',
+            '② 「参考になる情報ですね」と受け止める',
+            '③ 正確な情報を一次ソースをもとに丁寧に説明する',
+            '④ 不明な点は指導医に相談する',
+          ].map((step) => (
+            <div class="bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-700">{step}</div>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold border-l-4 border-orange-500 pl-4 mb-4">AIツール使用時のルール</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-orange-50">
+                <th class="text-left p-3 border border-gray-200">行為</th>
+                <th class="text-center p-3 border border-gray-200">可否</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="p-3 border border-gray-200">匿名化した症例の概要を質問する</td><td class="p-3 border border-gray-200 text-center text-yellow-600 font-bold">△ 施設の規定を確認</td></tr>
+              <tr class="bg-gray-50"><td class="p-3 border border-gray-200">患者名・生年月日を入力する</td><td class="p-3 border border-gray-200 text-center text-red-600 font-bold">❌ 絶対にNG</td></tr>
+              <tr><td class="p-3 border border-gray-200">診断名＋個人情報を入力する</td><td class="p-3 border border-gray-200 text-center text-red-600 font-bold">❌ 絶対にNG</td></tr>
+              <tr class="bg-gray-50"><td class="p-3 border border-gray-200">一般的な医療知識を質問する</td><td class="p-3 border border-gray-200 text-center text-green-600 font-bold">✅ OK</td></tr>
+              <tr><td class="p-3 border border-gray-200">英語論文の翻訳に使う（個人情報なし）</td><td class="p-3 border border-gray-200 text-center text-green-600 font-bold">✅ OK</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="bg-gray-800 text-white rounded-xl p-4 mt-4 text-center text-sm">
+          迷ったら使わない。施設の規定や指導医に確認してから使用しましょう。
+        </div>
+      </section>
+
+      <section class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+        <h2 class="text-lg font-bold mb-3">📝 まとめ</h2>
+        <ul class="list-disc list-inside space-y-2 text-gray-700 text-sm">
+          <li>医療安全の基本は「個人を責めずシステムを改善する」こと</li>
+          <li>AIは新しいリスク（誤情報・過信・情報漏洩）をもたらす</li>
+          <li>患者情報は絶対にAIに入力しない</li>
+          <li>医療行為の責任は常に医療者にある</li>
+        </ul>
+      </section>
+
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-gray-200 flex justify-between">
+      <a href="/step2" class="text-gray-500 hover:text-teal-600 transition px-6 py-3 rounded-full border border-gray-200 hover:border-teal-300">
+        ← STEP 2へ戻る
+      </a>
+      <a href="/step4" class="bg-teal-600 text-white px-6 py-3 rounded-full hover:bg-teal-700 transition font-bold">
+        STEP 4へ進む →
+      </a>
+    </div>
+
+  </div>
+</Layout>

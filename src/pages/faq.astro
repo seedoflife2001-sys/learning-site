@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const faqs = [
+  {
+    category: "AIの基本について",
+    color: "border-blue-500 bg-blue-50",
+    items: [
+      { q: "ChatGPTとClaudeは何が違いますか？", a: "どちらも生成AIですが、開発元・特徴が異なります。ChatGPTはOpenAI製で最も普及しています。ClaudeはAnthropic製で、安全性・正確性を重視した設計です。用途に合わせて使い分けることができます。" },
+      { q: "AIは最新の医療情報を知っていますか？", a: "いいえ。AIには「カットオフ日」と呼ばれる学習データの最終更新日があります。それ以降に発表されたガイドライン・論文・ニュースは原則として知りません。最新情報は必ず公式サイトや論文データベースで確認してください。" },
+      { q: "AIに聞いた方が教科書より早く調べられますが、使っていいですか？", a: "効率化の補助として使うことは問題ありません。ただし、AIの回答をそのまま信じず、重要な情報は必ず一次ソース（教科書・ガイドライン・論文）で確認してください。" },
+    ]
+  },
+  {
+    category: "臨床での活用について",
+    color: "border-teal-500 bg-teal-50",
+    items: [
+      { q: "薬の用量をAIに確認してもいいですか？", a: "推奨しません。AIは薬の用量を誤って出力することがあります。薬の用量確認は必ず添付文書または指導医への確認で行ってください。" },
+      { q: "患者さんに説明する文章をAIに作ってもらってもいいですか？", a: "個人情報を含まない形で文章の表現を整える補助として使うことは可能です。ただし、出力された文章は必ず自分で内容を確認・修正し、責任を持って使用してください。" },
+      { q: "鑑別診断を考えるときにAIを使ってもいいですか？", a: "考えるきっかけとして参考にすることは可能です。ただし、AIの提示した鑑別診断をそのまま採用せず、必ず指導医と相談した上で判断してください。" },
+    ]
+  },
+  {
+    category: "個人情報・プライバシーについて",
+    color: "border-red-500 bg-red-50",
+    items: [
+      { q: "患者さんの症例をAIに相談してもいいですか？", a: "患者の個人情報（氏名・生年月日・住所など）を入力することは絶対にNGです。匿名化した上で一般的な質問として聞く場合も、施設の規定を確認してから行ってください。" },
+      { q: "AIに入力した情報は外部に漏れますか？", a: "AIサービスによっては、入力したデータが学習に使用される場合があります。医療機関で使用するAIツールについては、施設の情報セキュリティ担当者や指導医に確認してください。" },
+    ]
+  },
+  {
+    category: "医療安全について",
+    color: "border-orange-500 bg-orange-50",
+    items: [
+      { q: "ヒヤリハットは必ず報告しないといけませんか？", a: "はい。ヒヤリハットの報告は義務ではなく、大きな事故を防ぐための重要な情報です。報告することで個人が責められるのではなく、システムの改善につながります。積極的に報告しましょう。" },
+      { q: "AIの情報を参考にして判断を誤った場合、誰の責任ですか？", a: "医療行為の責任は、AIではなく医療者自身にあります。「AIがそう言ったから」は医療ミスの言い訳にはなりません。AIを使う際は常にこの原則を念頭に置いてください。" },
+      { q: "患者さんがAIで調べた情報を持ってきたとき、どう対応すればいいですか？", a: "まず否定せずに話を聞きましょう。その上で、正確な情報を一次ソースをもとに丁寧に説明します。自分では答えられない場合は、指導医に相談してください。" },
+    ]
+  },
+];
+---
+
+<Layout title="よくある質問">
+  <div class="max-w-3xl mx-auto px-6 py-12">
+
+    <nav class="text-sm text-gray-400 mb-8">
+      <a href="/" class="hover:text-teal-600">ホーム</a> &rsaquo;
+      <span class="text-gray-600 ml-1">よくある質問</span>
+    </nav>
+
+    <div class="mb-10">
+      <span class="text-2xl mb-2 block">❓</span>
+      <h1 class="text-3xl font-bold mb-3">よくある質問</h1>
+      <p class="text-gray-500">研修医からよく寄せられる質問と回答（全11問）</p>
+    </div>
+
+    <div class="space-y-10">
+      {faqs.map((section) => (
+        <section>
+          <h2 class={`text-lg font-bold border-l-4 ${section.color.split(' ')[0]} pl-4 mb-4`}>
+            {section.category}
+          </h2>
+          <div class="space-y-4">
+            {section.items.map((item) => (
+              <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                <div class={`${section.color} px-5 py-3`}>
+                  <p class="font-bold text-gray-800 text-sm">Q. {item.q}</p>
+                </div>
+                <div class="px-5 py-4">
+                  <p class="text-gray-700 text-sm leading-relaxed">A. {item.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-gray-200 flex justify-between">
+      <a href="/glossary" class="text-gray-500 hover:text-teal-600 transition px-6 py-3 rounded-full border border-gray-200 hover:border-teal-300">
+        ← 用語集へ戻る
+      </a>
+      <a href="/" class="bg-teal-600 text-white px-6 py-3 rounded-full hover:bg-teal-700 transition font-bold">
+        ホームへ戻る
+      </a>
+    </div>
+
+  </div>
+</Layout>

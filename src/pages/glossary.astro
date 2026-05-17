@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const categories = [
+  {
+    title: "AI・テクノロジー用語",
+    color: "border-blue-500",
+    terms: [
+      { word: "AI（人工知能）", desc: "人間の知的な作業をコンピュータで再現する技術の総称" },
+      { word: "生成AI", desc: "文章・画像・音声などを新しく生成できるAI" },
+      { word: "ChatGPT", desc: "OpenAIが開発した対話型生成AI" },
+      { word: "Claude", desc: "Anthropicが開発した生成AI。安全性・正確性を重視" },
+      { word: "LLM（大規模言語モデル）", desc: "大量のテキストデータで学習した言語処理AIモデル" },
+      { word: "ハルシネーション", desc: "AIが事実ではない情報を自信満々に出力する現象" },
+      { word: "プロンプト", desc: "AIへの質問・指示文のこと" },
+      { word: "一次ソース", desc: "論文・公式ガイドラインなど、情報の原典となる資料" },
+      { word: "学習データ", desc: "AIが学習するために使用されたデータの集合" },
+      { word: "カットオフ日", desc: "AIの学習データの最終更新日。それ以降の情報は持っていない" },
+    ]
+  },
+  {
+    title: "医療安全用語",
+    color: "border-orange-500",
+    terms: [
+      { word: "医療安全", desc: "患者への医療行為において安全を確保するための取り組み" },
+      { word: "ヒヤリハット", desc: "事故には至らなかったが、ヒヤリとした・ハッとした体験" },
+      { word: "インシデント", desc: "患者に影響が及んだが、軽微だった出来事" },
+      { word: "アクシデント", desc: "患者に明らかな影響・被害が生じた出来事" },
+      { word: "医療過誤", desc: "医療者の過失による患者への被害" },
+      { word: "RCA（根本原因分析）", desc: "インシデント・アクシデントの根本原因を分析する手法" },
+      { word: "SHELモデル", desc: "医療事故の要因を分析するモデル（Software・Hardware・Environment・Liveware）" },
+      { word: "KYT（危険予知トレーニング）", desc: "事故を未然に防ぐためのトレーニング手法" },
+    ]
+  },
+  {
+    title: "個人情報・法律用語",
+    color: "border-red-500",
+    terms: [
+      { word: "個人情報保護法", desc: "個人情報の適切な取り扱いを定めた法律" },
+      { word: "個人情報", desc: "氏名・生年月日・住所など、特定の個人を識別できる情報" },
+      { word: "要配慮個人情報", desc: "病歴・診断名など、特に慎重な取り扱いが必要な個人情報" },
+      { word: "匿名化", desc: "個人が特定できないように情報を加工すること" },
+      { word: "情報漏洩", desc: "個人情報や機密情報が外部に流出すること" },
+    ]
+  },
+  {
+    title: "文献・情報検索用語",
+    color: "border-teal-500",
+    terms: [
+      { word: "PubMed", desc: "米国国立医学図書館が提供する医学文献データベース" },
+      { word: "医中誌", desc: "医学中央雑誌。日本の医学文献データベース" },
+      { word: "Cochrane Library", desc: "系統的レビュー・メタアナリシスを収録するデータベース" },
+      { word: "MeSH", desc: "PubMedで使われる医学用語の統制語彙" },
+      { word: "系統的レビュー", desc: "特定のテーマに関する研究を網羅的に収集・分析したもの" },
+      { word: "エビデンスレベル", desc: "研究デザインの信頼性の高さを示す段階的な評価" },
+    ]
+  },
+];
+---
+
+<Layout title="用語集">
+  <div class="max-w-3xl mx-auto px-6 py-12">
+
+    <nav class="text-sm text-gray-400 mb-8">
+      <a href="/" class="hover:text-teal-600">ホーム</a> &rsaquo;
+      <span class="text-gray-600 ml-1">用語集</span>
+    </nav>
+
+    <div class="mb-10">
+      <span class="text-2xl mb-2 block">📖</span>
+      <h1 class="text-3xl font-bold mb-3">用語集</h1>
+      <p class="text-gray-500">AIリテラシー・医療安全に関する重要用語（全24語）</p>
+    </div>
+
+    <div class="space-y-10">
+      {categories.map((cat) => (
+        <section>
+          <h2 class={`text-xl font-bold border-l-4 ${cat.color} pl-4 mb-4`}>{cat.title}</h2>
+          <div class="space-y-3">
+            {cat.terms.map((term) => (
+              <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-4">
+                <div class="min-w-0">
+                  <p class="font-bold text-gray-800">{term.word}</p>
+                  <p class="text-gray-600 text-sm mt-1">{term.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-gray-200 flex justify-between">
+      <a href="/" class="text-gray-500 hover:text-teal-600 transition px-6 py-3 rounded-full border border-gray-200 hover:border-teal-300">
+        ← ホームへ戻る
+      </a>
+      <a href="/faq" class="bg-teal-600 text-white px-6 py-3 rounded-full hover:bg-teal-700 transition font-bold">
+        FAQへ →
+      </a>
+    </div>
+
+  </div>
+</Layout>

@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const steps = [
+  {
+    step: "STEP 0",
+    title: "はじめに",
+    description: "このサイトの使い方と学習の進め方を確認しましょう。",
+    color: "bg-gray-500",
+    href: "/step0",
+    time: "10分",
+  },
+  {
+    step: "STEP 1",
+    title: "AIとは何か",
+    description: "AIの基本的な仕組み、生成AIの特徴、得意なこと・苦手なことを理解します。",
+    color: "bg-blue-500",
+    href: "/step1",
+    time: "30分",
+  },
+  {
+    step: "STEP 2",
+    title: "AI情報の信頼性を判断する",
+    description: "ハルシネーションとは何か。医療情報をAIでどこまで信じていいかを学びます。",
+    color: "bg-teal-500",
+    href: "/step2",
+    time: "45分",
+    main: true,
+  },
+  {
+    step: "STEP 3",
+    title: "医療安全とAI",
+    description: "医療安全の基本概念と、AIが関わる新しいリスクについて理解します。",
+    color: "bg-orange-500",
+    href: "/step3",
+    time: "40分",
+  },
+  {
+    step: "STEP 4",
+    title: "実践的なAI活用",
+    description: "文献検索・記録作成への活用法と、やってはいけない使い方を学びます。",
+    color: "bg-purple-500",
+    href: "/step4",
+    time: "35分",
+  },
+];
+
+const references = [
+  {
+    title: "用語集",
+    description: "AIリテラシー・医療安全に関する重要用語を24語解説。",
+    href: "/glossary",
+    icon: "📖",
+  },
+  {
+    title: "よくある質問",
+    description: "研修医からよく寄せられる11の質問と回答をまとめました。",
+    href: "/faq",
+    icon: "❓",
+  },
+];
+---
+
+<Layout title="ホーム">
+
+  <!-- ヒーローセクション -->
+  <section class="bg-gradient-to-br from-teal-600 to-blue-700 text-white py-20 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <p class="text-teal-200 text-sm font-medium mb-3 tracking-widest uppercase">歯科医師臨床研修医向け</p>
+      <h1 class="text-4xl font-bold mb-4 leading-tight">
+        AIリテラシー学習ハブ
+      </h1>
+      <p class="text-xl text-teal-100 mb-3 max-w-2xl mx-auto">
+        AIの情報をどこまで信じていいか、<br class="hidden md:inline" />正しい判断力を身につけましょう。
+      </p>
+      <p class="text-teal-200 text-sm mb-10">
+        自己学習・講義補助教材として利用できます
+      </p>
+      <a href="/step0" class="bg-white text-teal-600 font-bold px-8 py-3 rounded-full hover:bg-teal-50 transition shadow-md">
+        学習をはじめる →
+      </a>
+    </div>
+  </section>
+
+  <!-- 注意バナー -->
+  <div class="bg-amber-50 border-b border-amber-200 px-6 py-3">
+    <p class="max-w-5xl mx-auto text-amber-800 text-sm text-center">
+      ⚠️ 本サイトは教育目的のコンテンツです。個々の臨床判断は必ず指導医に確認してください。
+    </p>
+  </div>
+
+  <!-- 学習ステップ -->
+  <section class="max-w-5xl mx-auto px-6 py-16">
+    <h2 class="text-2xl font-bold text-center mb-2">学習ステップ</h2>
+    <p class="text-gray-500 text-center text-sm mb-10">STEP 0から順番に進めることをおすすめします</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {steps.map((step) => (
+        <a
+          href={step.href}
+          class={`relative bg-white rounded-xl shadow hover:shadow-lg transition p-6 border ${step.main ? 'border-teal-300 ring-2 ring-teal-200' : 'border-gray-100'}`}
+        >
+          {step.main && (
+            <span class="absolute top-3 right-3 bg-teal-500 text-white text-xs px-2 py-0.5 rounded-full">
+              メインテーマ
+            </span>
+          )}
+          <span class={`inline-block text-white text-xs font-bold px-3 py-1 rounded-full mb-4 ${step.color}`}>
+            {step.step}
+          </span>
+          <h3 class="text-lg font-bold mb-2">{step.title}</h3>
+          <p class="text-gray-600 text-sm mb-4">{step.description}</p>
+          <p class="text-xs text-gray-400">⏱ 目安：{step.time}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- リファレンス -->
+  <section class="bg-gray-100 py-12 px-6">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-xl font-bold text-center mb-8">リファレンス</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {references.map((ref) => (
+          <a href={ref.href} class="bg-white rounded-xl shadow hover:shadow-md transition p-6 border border-gray-100 flex gap-4 items-start">
+            <span class="text-3xl">{ref.icon}</span>
+            <div>
+              <h3 class="font-bold mb-1">{ref.title}</h3>
+              <p class="text-gray-600 text-sm">{ref.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Layout>

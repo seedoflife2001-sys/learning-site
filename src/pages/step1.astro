@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="AIとは何か">
+  <div class="max-w-3xl mx-auto px-6 py-12">
+
+    <nav class="text-sm text-gray-400 mb-8">
+      <a href="/" class="hover:text-teal-600">ホーム</a> &rsaquo;
+      <span class="text-gray-600 ml-1">STEP 1｜AIとは何か</span>
+    </nav>
+
+    <div class="mb-10">
+      <span class="inline-block bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">STEP 1</span>
+      <h1 class="text-3xl font-bold mb-3">AIとは何か（基礎知識）</h1>
+      <p class="text-gray-500">AIの仕組み・生成AIの特徴・得意なことと苦手なことを理解する</p>
+    </div>
+
+    <div class="space-y-10">
+
+      <section>
+        <h2 class="text-xl font-bold border-l-4 border-blue-500 pl-4 mb-4">AIの仕組みをざっくり理解する</h2>
+        <p class="text-gray-700 leading-relaxed">AI（人工知能）とは、<strong>大量のデータをもとに学習し、パターンを見つけて答えを出すシステム</strong>です。</p>
+        <p class="text-gray-700 leading-relaxed mt-3">人間が「経験から学ぶ」ように、AIも膨大なテキスト・画像・データを読み込み、「次に来る言葉は何か」「この画像は何か」を予測します。</p>
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mt-4 rounded-r-xl">
+          <p class="text-blue-800 font-bold">重要なポイント</p>
+          <p class="text-blue-700 mt-1">AIは「考えている」のではなく、<strong>「統計的に確からしい答えを出している」</strong>のです。</p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold border-l-4 border-blue-500 pl-4 mb-4">ChatGPT・生成AIとは</h2>
+        <p class="text-gray-700 leading-relaxed"><strong>生成AI</strong>とは、文章・画像・音声などを新しく「生成」できるAIです。ChatGPTはその代表例で、質問に対して自然な文章で回答します。</p>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-5 mt-4">
+          <p class="font-bold text-gray-700 mb-3">生成AIの仕組み（簡略）</p>
+          <div class="flex flex-col gap-2 text-sm text-gray-600">
+            <div class="bg-white border border-gray-200 rounded-lg px-4 py-2">あなたの質問</div>
+            <div class="text-center text-gray-400">↓</div>
+            <div class="bg-white border border-gray-200 rounded-lg px-4 py-2">AIが学習済みのデータから「確からしい回答」を生成</div>
+            <div class="text-center text-gray-400">↓</div>
+            <div class="bg-white border border-gray-200 rounded-lg px-4 py-2">自然な文章として出力</div>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-gray-800 mt-6 mb-3">よく使われる生成AIツール</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="text-left p-3 border border-gray-200">ツール名</th>
+                <th class="text-left p-3 border border-gray-200">開発元</th>
+                <th class="text-left p-3 border border-gray-200">特徴</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="p-3 border border-gray-200 font-medium">ChatGPT</td><td class="p-3 border border-gray-200">OpenAI</td><td class="p-3 border border-gray-200">最も普及している対話型AI</td></tr>
+              <tr class="bg-gray-50"><td class="p-3 border border-gray-200 font-medium">Claude</td><td class="p-3 border border-gray-200">Anthropic</td><td class="p-3 border border-gray-200">安全性・正確性を重視</td></tr>
+              <tr><td class="p-3 border border-gray-200 font-medium">Gemini</td><td class="p-3 border border-gray-200">Google</td><td class="p-3 border border-gray-200">Google検索との連携が強み</td></tr>
+              <tr class="bg-gray-50"><td class="p-3 border border-gray-200 font-medium">Copilot</td><td class="p-3 border border-gray-200">Microsoft</td><td class="p-3 border border-gray-200">Office製品との連携</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold border-l-4 border-blue-500 pl-4 mb-4">AIが「得意なこと」と「苦手なこと」</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-green-50 border border-green-200 rounded-xl p-5">
+            <p class="font-bold text-green-800 mb-3">✅ 得意なこと</p>
+            <ul class="space-y-2 text-green-700 text-sm">
+              <li>・文章の要約・翻訳</li>
+              <li>・情報の整理・箇条書き化</li>
+              <li>・文献のキーワード検索の補助</li>
+              <li>・記録文書の下書き作成</li>
+              <li>・英語論文の読み解き補助</li>
+            </ul>
+          </div>
+          <div class="bg-red-50 border border-red-200 rounded-xl p-5">
+            <p class="font-bold text-red-800 mb-3">⚠️ 苦手なこと</p>
+            <ul class="space-y-2 text-red-700 text-sm">
+              <li>・<strong>最新情報の提供</strong>（学習データに時間的な限界）</li>
+              <li>・<strong>事実の保証</strong>（自信満々に間違える）</li>
+              <li>・<strong>個別症例への適用</strong></li>
+              <li>・<strong>出典の明示</strong>（存在しない論文を引用）</li>
+              <li>・<strong>数値・統計の正確な引用</strong></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold border-l-4 border-blue-500 pl-4 mb-4">医療現場でAIを使うときの大前提</h2>
+        <div class="bg-gray-800 text-white rounded-xl p-6 text-center">
+          <p class="text-lg font-bold">AIの回答 ＝ 「参考意見」</p>
+          <p class="text-gray-300 mt-2">「診断・治療の根拠」ではない</p>
+        </div>
+        <p class="text-gray-700 mt-4">AIはあくまで<strong>情報収集・整理のアシスタント</strong>です。臨床判断の最終責任は、常に<strong>医療者自身</strong>にあります。</p>
+      </section>
+
+      <section class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+        <h2 class="text-lg font-bold mb-3">📝 まとめ</h2>
+        <ul class="list-disc list-inside space-y-2 text-gray-700 text-sm">
+          <li>AIは「統計的に確からしい答え」を出すシステム</li>
+          <li>生成AIは文章を自然に生成できるが、<strong>間違えることがある</strong></li>
+          <li>得意なこと・苦手なことを理解して使うことが重要</li>
+          <li>臨床判断にAIをそのまま使用してはいけない</li>
+        </ul>
+      </section>
+
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-gray-200 flex justify-between">
+      <a href="/step0" class="text-gray-500 hover:text-teal-600 transition px-6 py-3 rounded-full border border-gray-200 hover:border-teal-300">
+        ← STEP 0へ戻る
+      </a>
+      <a href="/step2" class="bg-teal-600 text-white px-6 py-3 rounded-full hover:bg-teal-700 transition font-bold">
+        STEP 2へ進む →
+      </a>
+    </div>
+
+  </div>
+</Layout>
